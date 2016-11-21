@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private void showPopupWindow(View view) {
         View contentView = LayoutInflater.from(this).inflate(R.layout.popup_layout, null);
         PopupWindow popupWindow = new PopupWindow(contentView, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         popupWindow.setTouchable(true);
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(android.R.drawable.dialog_holo_light_frame));
+        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.actionsheet_bg_ios6));
         popupWindow.setAnimationStyle(R.style.PopupWindowAnimation);
         popupWindow.showAtLocation(view, Gravity.BOTTOM, 0, 0);
+
         View container = popupWindow.getContentView().getRootView();
         container.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
